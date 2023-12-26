@@ -1,6 +1,7 @@
 package com.example.task_flow.controller;
 
 import com.example.task_flow.model.dto.UserDTO;
+import com.example.task_flow.model.dto.response.UserResponseDTO;
 import com.example.task_flow.model.entities.User;
 import com.example.task_flow.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserDTO user) {
-        User createdUser = userService.createUser(user);
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserDTO user) {
+        UserResponseDTO createdUser = userService.createUser(user);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 

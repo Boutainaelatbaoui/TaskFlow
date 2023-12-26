@@ -3,6 +3,7 @@ package com.example.task_flow.service.implementations;
 // UserServiceImpl.java
 import com.example.task_flow.mapper.UserMapper;
 import com.example.task_flow.model.dto.UserDTO;
+import com.example.task_flow.model.dto.response.UserResponseDTO;
 import com.example.task_flow.model.entities.User;
 import com.example.task_flow.repository.UserRepository;
 import com.example.task_flow.service.IUserService;
@@ -22,12 +23,12 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User createUser(UserDTO userDTO) {
+    public UserResponseDTO createUser(UserDTO userDTO) {
         User user = userMapper.dtoToEntity(userDTO);
         System.out.println(user);
         User savedUser = userRepository.save(user);
         System.out.println(savedUser);
-        return savedUser;
+        return userMapper.entityToDto(savedUser);
     }
 }
 
