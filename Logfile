@@ -238,3 +238,80 @@
 2023-12-27T09:15:32.377+01:00  INFO 4476 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-12-27T09:15:32.378+01:00  INFO 4476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2023-12-27T09:15:32.379+01:00  INFO 4476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-12-27T10:53:10.297+01:00  INFO 9260 --- [main] c.example.task_flow.TaskFlowApplication  : Starting TaskFlowApplication using Java 17.0.9 with PID 9260 (C:\Users\Youcode\Desktop\task_flow\target\classes started by Youcode in C:\Users\Youcode\Desktop\task_flow)
+2023-12-27T10:53:10.301+01:00  INFO 9260 --- [main] c.example.task_flow.TaskFlowApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-12-27T10:53:11.100+01:00  INFO 9260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-27T10:53:11.161+01:00  INFO 9260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2023-12-27T10:53:11.720+01:00  INFO 9260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2023-12-27T10:53:11.732+01:00  INFO 9260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-27T10:53:11.732+01:00  INFO 9260 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-27T10:53:11.797+01:00  INFO 9260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-27T10:53:11.798+01:00  INFO 9260 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1449 ms
+2023-12-27T10:53:11.966+01:00  INFO 9260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-27T10:53:12.138+01:00  INFO 9260 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a1ccaaf
+2023-12-27T10:53:12.140+01:00  INFO 9260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-27T10:53:13.269+01:00  INFO 9260 --- [main] liquibase.changelog                      : Reading from task_flow.databasechangelog
+2023-12-27T10:53:13.335+01:00  INFO 9260 --- [main] liquibase.changelog                      : Reading from task_flow.databasechangelog
+2023-12-27T10:53:13.343+01:00  INFO 9260 --- [main] liquibase.util                           : UPDATE SUMMARY
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : Run:                          0
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : Previously run:              10
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : Filtered out:                 0
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : -------------------------------
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : Total change sets:           10
+2023-12-27T10:53:13.344+01:00  INFO 9260 --- [main] liquibase.util                           : Update summary generated
+2023-12-27T10:53:13.365+01:00  INFO 9260 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-12-27T10:53:13.366+01:00  INFO 9260 --- [main] liquibase.command                        : Command execution complete
+2023-12-27T10:53:13.437+01:00  INFO 9260 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-27T10:53:13.533+01:00  INFO 9260 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-27T10:53:13.605+01:00  INFO 9260 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-27T10:53:14.002+01:00  INFO 9260 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-27T10:53:14.060+01:00  WARN 9260 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-12-27T10:53:15.041+01:00  INFO 9260 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-27T10:53:15.044+01:00  INFO 9260 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-27T10:53:15.327+01:00  WARN 9260 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-27T10:53:15.709+01:00  INFO 9260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2023-12-27T10:53:15.719+01:00  INFO 9260 --- [main] c.example.task_flow.TaskFlowApplication  : Started TaskFlowApplication in 5.864 seconds (process running for 6.817)
+2023-12-27T10:53:21.402+01:00  INFO 9260 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-27T10:53:21.403+01:00  INFO 9260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-27T10:53:21.406+01:00  INFO 9260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-12-27T11:36:44.121+01:00  INFO 9260 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-27T11:36:44.217+01:00  INFO 9260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-27T11:36:44.262+01:00  INFO 9260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-27T11:36:59.112+01:00  INFO 19284 --- [main] c.example.task_flow.TaskFlowApplication  : Starting TaskFlowApplication using Java 17.0.9 with PID 19284 (C:\Users\Youcode\Desktop\task_flow\target\classes started by Youcode in C:\Users\Youcode\Desktop\task_flow)
+2023-12-27T11:36:59.143+01:00  INFO 19284 --- [main] c.example.task_flow.TaskFlowApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-12-27T11:37:00.511+01:00  INFO 19284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-27T11:37:00.595+01:00  INFO 19284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 2 JPA repository interfaces.
+2023-12-27T11:37:01.181+01:00  INFO 19284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2023-12-27T11:37:01.196+01:00  INFO 19284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-27T11:37:01.197+01:00  INFO 19284 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-27T11:37:01.276+01:00  INFO 19284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-27T11:37:01.276+01:00  INFO 19284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2007 ms
+2023-12-27T11:37:01.451+01:00  INFO 19284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-27T11:37:01.641+01:00  INFO 19284 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@715f45c6
+2023-12-27T11:37:01.644+01:00  INFO 19284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-27T11:37:02.939+01:00  INFO 19284 --- [main] liquibase.changelog                      : Reading from task_flow.databasechangelog
+2023-12-27T11:37:03.016+01:00  INFO 19284 --- [main] liquibase.changelog                      : Reading from task_flow.databasechangelog
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : UPDATE SUMMARY
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : Run:                          0
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : Previously run:              10
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : Filtered out:                 0
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : -------------------------------
+2023-12-27T11:37:03.025+01:00  INFO 19284 --- [main] liquibase.util                           : Total change sets:           10
+2023-12-27T11:37:03.026+01:00  INFO 19284 --- [main] liquibase.util                           : Update summary generated
+2023-12-27T11:37:03.048+01:00  INFO 19284 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-12-27T11:37:03.050+01:00  INFO 19284 --- [main] liquibase.command                        : Command execution complete
+2023-12-27T11:37:03.131+01:00  INFO 19284 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-27T11:37:03.231+01:00  INFO 19284 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-27T11:37:03.285+01:00  INFO 19284 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-27T11:37:03.569+01:00  INFO 19284 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-27T11:37:03.653+01:00  WARN 19284 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-12-27T11:37:04.788+01:00  INFO 19284 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-27T11:37:04.792+01:00  INFO 19284 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-27T11:37:05.108+01:00  WARN 19284 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-27T11:37:05.502+01:00  INFO 19284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2023-12-27T11:37:05.514+01:00  INFO 19284 --- [main] c.example.task_flow.TaskFlowApplication  : Started TaskFlowApplication in 8.181 seconds (process running for 10.155)
+2023-12-27T11:38:59.677+01:00  INFO 19284 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-27T11:38:59.677+01:00  INFO 19284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-27T11:38:59.679+01:00  INFO 19284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-12-27T11:40:36.646+01:00  WARN 19284 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.task_flow.model.dto.response.TagResponseDTO> com.example.task_flow.controller.TagController.updateTag(java.lang.Long,com.example.task_flow.model.dto.TagDTO)]
+2023-12-27T13:34:03.346+01:00  WARN 19284 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h40m1s260ms628µs500ns).
