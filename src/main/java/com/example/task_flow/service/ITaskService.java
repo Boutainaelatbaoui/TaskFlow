@@ -1,0 +1,14 @@
+package com.example.task_flow.service;
+
+import com.example.task_flow.model.dto.TaskDTO;
+import com.example.task_flow.model.dto.response.TaskResponseDTO;
+
+import java.util.List;
+
+public interface ITaskService {
+    TaskResponseDTO createTask(TaskDTO taskDTO);
+    TaskResponseDTO updateTask(Long taskId, TaskDTO taskDTO);
+    void deleteTask(Long taskId);
+    TaskResponseDTO getTaskById(Long taskId);
+    List<TaskResponseDTO> getAllTasks();
+}

@@ -32,5 +32,10 @@ public class TokenDemand {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    private Task task;
 }
+
+
 
