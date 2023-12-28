@@ -3,8 +3,10 @@ package com.example.task_flow.model.dto.response;
 import com.example.task_flow.enums.Priority;
 import com.example.task_flow.enums.TaskStatus;
 import com.example.task_flow.model.dto.TagDTO;
+import com.example.task_flow.model.dto.UserDTO;
 import com.example.task_flow.model.entities.Tag;
 import com.example.task_flow.model.entities.TokenDemand;
+import com.example.task_flow.model.entities.User;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -22,8 +24,8 @@ public class TaskResponseDTO {
     private Priority priority;
     private LocalDate startDate;
     private LocalDate dueDate;
-    private Long createdByUserId;
-    private Long assignedToUserId;
+    private UserDTO createdBy;
+    private UserDTO assignedTo;
     private TaskStatus status;
     private List<TagDTO> tags;
     private List<TokenDemand> tokenDemands;

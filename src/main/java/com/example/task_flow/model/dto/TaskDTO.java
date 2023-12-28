@@ -25,9 +25,11 @@ public class TaskDTO {
     private Priority priority;
 
     @NotNull(message = "Start date is required")
+    @FutureOrPresent(message = "Start date must be in the present or future")
     private LocalDate startDate;
 
     @NotNull(message = "Due date is required")
+    @FutureOrPresent(message = "Due date must be in the present or future")
     private LocalDate dueDate;
 
     @NotNull(message = "Created by user ID is required")
@@ -36,7 +38,6 @@ public class TaskDTO {
     @NotNull(message = "Assigned to user ID is required")
     private Long assignedToUserId;
 
-    @NotNull(message = "Task status is required")
     private TaskStatus status;
 
     @NotEmpty(message = "At least one tag is required")

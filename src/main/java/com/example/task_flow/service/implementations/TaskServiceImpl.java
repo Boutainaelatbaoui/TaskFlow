@@ -1,8 +1,13 @@
 package com.example.task_flow.service.implementations;
 
+import com.example.task_flow.enums.Role;
+import com.example.task_flow.enums.TaskStatus;
 import com.example.task_flow.mapper.TaskMapper;
+import com.example.task_flow.mapper.UserMapper;
 import com.example.task_flow.model.dto.TaskDTO;
+import com.example.task_flow.model.dto.UserDTO;
 import com.example.task_flow.model.dto.response.TaskResponseDTO;
+import com.example.task_flow.model.dto.response.UserResponseDTO;
 import com.example.task_flow.model.entities.Tag;
 import com.example.task_flow.model.entities.Task;
 import com.example.task_flow.model.entities.User;
@@ -29,8 +34,6 @@ public class TaskServiceImpl implements ITaskService {
     private final TagRepository tagRepository;
     private final UserRepository userRepository;
 
-
-
     @Override
     public TaskResponseDTO createTask(TaskDTO taskDTO) {
         validateTaskDTO(taskDTO);
@@ -39,6 +42,7 @@ public class TaskServiceImpl implements ITaskService {
         task.setCreatedBy(getUserById(taskDTO.getCreatedByUserId()));
         task.setAssignedTo(getUserById(taskDTO.getAssignedToUserId()));
         task.setTags(getTagsByIds(taskDTO.getTagIds()));
+        task.setStatus(TaskStatus.IN_PROGRESS);
         Task savedTask = taskRepository.save(task);
         return taskMapper.entityToDto(savedTask);
     }
@@ -47,7 +51,7 @@ public class TaskServiceImpl implements ITaskService {
     public TaskResponseDTO updateTask(Long taskId, TaskDTO taskDTO) {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
-            //validateTaskDTO(taskDTO);
+            validateTaskDTO(taskDTO);
 
             Task task = optionalTask.get();
             task.setTitle(taskDTO.getTitle());
@@ -66,13 +70,25 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public void deleteTask(Long taskId) {
+    public void deleteTask(Long taskId, Long userId) {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
-            taskRepository.deleteById(taskId);
+            Task task = optionalTask.get();
+
+            if (isAdminOrCreator(userId, task.getCreatedBy())) {
+                taskRepository.deleteById(taskId);
+            } else {
+                throw new ValidationException("User does not have permission to delete this task. You can send a token to delete this task !!");
+            }
         } else {
             throw new ValidationException("Task not found with ID: " + taskId);
         }
+    }
+
+    private boolean isAdminOrCreator(Long userId, User createdBy) {
+        User user = getUserById(userId);
+
+        return user.getRole() == Role.MANAGER || createdBy.equals(user);
     }
 
     @Override
@@ -80,7 +96,10 @@ public class TaskServiceImpl implements ITaskService {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
-            return taskMapper.entityToDto(task);
+            TaskResponseDTO taskResponseDTO = taskMapper.entityToDto(task);
+            taskResponseDTO.setAssignedTo(mapUserToUserDTO(task.getAssignedTo()));
+            taskResponseDTO.setCreatedBy(mapUserToUserDTO(task.getCreatedBy()));
+            return taskResponseDTO;
         } else {
             throw new ValidationException("Task not found with ID: " + taskId);
         }
@@ -90,20 +109,29 @@ public class TaskServiceImpl implements ITaskService {
     public List<TaskResponseDTO> getAllTasks() {
         List<Task> tasks = taskRepository.findAll();
         return tasks.stream()
-                .map(taskMapper::entityToDto)
+                .map(task -> {
+                    TaskResponseDTO taskResponseDTO = taskMapper.entityToDto(task);
+                    taskResponseDTO.setCreatedBy(mapUserToUserDTO(task.getCreatedBy()));
+                    taskResponseDTO.setAssignedTo(mapUserToUserDTO(task.getAssignedTo()));
+                    return taskResponseDTO;
+                })
                 .collect(Collectors.toList());
     }
 
     private void validateTaskDTO(TaskDTO taskDTO) {
-//        LocalDate currentDate = LocalDate.now();
-//
-//        if (taskDTO.getStartDate().isBefore(currentDate) || taskDTO.getDueDate().isBefore(currentDate)) {
-//            throw new ValidationException("Task start and due dates cannot be in the past.");
-//        }
-//
-//        if (taskDTO.getStartDate().isAfter(taskDTO.getDueDate().minusDays(3))) {
-//            throw new ValidationException("Task must be scheduled at least 3 days in advance.");
-//        }
+        LocalDate currentDate = LocalDate.now();
+
+        if (taskDTO.getStartDate().isBefore(currentDate)) {
+            throw new ValidationException("Task start date cannot be in the past.");
+        }
+
+        if (taskDTO.getDueDate().isBefore(taskDTO.getStartDate())) {
+            throw new ValidationException("Task due date cannot be in the past.");
+        }
+
+        if (taskDTO.getStartDate().isAfter(currentDate.plusDays(3))) {
+            throw new ValidationException("Task must be scheduled at least 3 days in advance.");
+        }
 
         getTagsByIds(taskDTO.getTagIds());
 
@@ -113,7 +141,14 @@ public class TaskServiceImpl implements ITaskService {
 
         getUserById(taskDTO.getCreatedByUserId());
         getUserById(taskDTO.getAssignedToUserId());
+
+        if (getUserById(taskDTO.getCreatedByUserId()).getRole() == Role.USER) {
+            if (taskDTO.getCreatedByUserId() != taskDTO.getAssignedToUserId()) {
+                throw new ValidationException("User with role USER can only assign tasks to themselves.");
+            }
+        }
     }
+
 
     private List<Tag> getTagsByIds(List<Long> tagIds) {
         List<Tag> existingTags = tagRepository.findAllById(tagIds);
@@ -126,5 +161,17 @@ public class TaskServiceImpl implements ITaskService {
     private User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ValidationException("User not found with ID: " + userId));
+    }
+
+    private UserDTO mapUserToUserDTO(User user) {
+        if (user != null) {
+            return UserDTO.builder()
+                    .userName(user.getUserName())
+                    .email(user.getEmail())
+                    .telephone(user.getTelephone())
+                    .role(user.getRole())
+                    .build();
+        }
+        return null;
     }
 }
