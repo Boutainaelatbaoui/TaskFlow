@@ -15,6 +15,7 @@ import com.example.task_flow.repository.TagRepository;
 import com.example.task_flow.repository.TaskRepository;
 import com.example.task_flow.repository.UserRepository;
 import com.example.task_flow.service.ITaskService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,6 +150,39 @@ public class TaskServiceImpl implements ITaskService {
         }
     }
 
+    @Override
+    @Transactional
+    public void updateTaskStatusToDone(Long taskId) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+
+        if (optionalTask.isPresent()) {
+            Task task = optionalTask.get();
+
+            if (task.getDueDate().isBefore(LocalDate.now())) {
+                throw new ValidationException("Task cannot be marked as DONE after the due date has passed.");
+            }
+
+            if (task.getStatus() == TaskStatus.COMPLETED || task.getStatus() == TaskStatus.UNCOMPLETED) {
+                throw new ValidationException("Task is already marked as DONE or is UNCOMPLETED.");
+            }
+
+            taskRepository.updateTaskStatusToDone(taskId, LocalDate.now());
+        } else {
+            throw new ValidationException("Task not found with ID: " + taskId);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void updateOverdueTasksStatus() {
+        List<Task> overdueTasks = taskRepository.findLateTasks(LocalDate.now());
+
+        for (Task task : overdueTasks) {
+            if (task.getStatus() == TaskStatus.IN_PROGRESS) {
+                task.setStatus(TaskStatus.UNCOMPLETED);
+            }
+        }
+    }
 
     private List<Tag> getTagsByIds(List<Long> tagIds) {
         List<Tag> existingTags = tagRepository.findAllById(tagIds);

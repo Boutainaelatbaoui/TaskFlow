@@ -3,6 +3,7 @@ package com.example.task_flow.model.dto.response;
 import com.example.task_flow.enums.Priority;
 import com.example.task_flow.enums.TaskStatus;
 import com.example.task_flow.model.dto.TagDTO;
+import com.example.task_flow.model.dto.TokenDemandDTO;
 import com.example.task_flow.model.dto.UserDTO;
 import com.example.task_flow.model.entities.Tag;
 import com.example.task_flow.model.entities.TokenDemand;
@@ -28,5 +29,5 @@ public class TaskResponseDTO {
     private UserDTO assignedTo;
     private TaskStatus status;
     private List<TagDTO> tags;
-    private List<TokenDemand> tokenDemands;
+    private List<TokenDemandDTO> tokenDemands;
 }

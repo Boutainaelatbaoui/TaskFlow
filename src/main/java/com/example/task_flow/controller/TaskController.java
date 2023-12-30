@@ -51,4 +51,10 @@ public class TaskController {
         List<TaskResponseDTO> tasks = taskService.getAllTasks();
         return ResponseEntity.ok(tasks);
     }
+
+    @PutMapping("/{taskId}/mark-done")
+    public ResponseEntity<String> markTaskAsDone(@PathVariable Long taskId) {
+        taskService.updateTaskStatusToDone(taskId);
+        return ResponseEntity.ok("Task status has been updated to completed.");
+    }
 }
