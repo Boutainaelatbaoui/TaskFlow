@@ -5,11 +5,13 @@ import com.example.task_flow.enums.TaskStatus;
 import com.example.task_flow.mapper.TaskMapper;
 import com.example.task_flow.mapper.UserMapper;
 import com.example.task_flow.model.dto.TaskDTO;
+import com.example.task_flow.model.dto.TokenDemandDTO;
 import com.example.task_flow.model.dto.UserDTO;
 import com.example.task_flow.model.dto.response.TaskResponseDTO;
 import com.example.task_flow.model.dto.response.UserResponseDTO;
 import com.example.task_flow.model.entities.Tag;
 import com.example.task_flow.model.entities.Task;
+import com.example.task_flow.model.entities.TokenDemand;
 import com.example.task_flow.model.entities.User;
 import com.example.task_flow.repository.TagRepository;
 import com.example.task_flow.repository.TaskRepository;
@@ -207,5 +209,13 @@ public class TaskServiceImpl implements ITaskService {
                     .build();
         }
         return null;
+    }
+
+    private TokenDemandDTO mapTokenToDTO(TokenDemand tokenDemand){
+        return TokenDemandDTO.builder()
+                .demandDate(tokenDemand.getDemandDate())
+                .status(tokenDemand.getStatus())
+                .type(tokenDemand.getType())
+                .build();
     }
 }
