@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Builder
@@ -20,7 +21,7 @@ public class TokenDemand {
     private Long id;
 
     @Column(name = "demand_date")
-    private LocalDate demandDate;
+    private LocalDateTime demandDate;
 
     @Enumerated(EnumType.STRING)
     private DemandStatus status;

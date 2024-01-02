@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface TokenDemandRepository extends JpaRepository<TokenDemand, Long> {
     @Query("SELECT COUNT(td) FROM TokenDemand td WHERE td.user.id = :userId " +
@@ -30,5 +31,7 @@ public interface TokenDemandRepository extends JpaRepository<TokenDemand, Long> 
 
     boolean existsByTask(Task task);
     boolean existsByTaskAndStatus(Task task, DemandStatus status);
+    @Query("SELECT td FROM TokenDemand td WHERE td.status = 'PENDING'")
+    List<TokenDemand> findPendingTokenRequests();
 
 }

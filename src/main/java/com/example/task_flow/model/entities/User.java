@@ -41,7 +41,7 @@ public class User {
     private List<TokenDemand> tokenDemands;
 
     @Column(name = "additional_tokens")
-    private boolean additionalTokens;
+    private int additionalTokens;
 
 }
 

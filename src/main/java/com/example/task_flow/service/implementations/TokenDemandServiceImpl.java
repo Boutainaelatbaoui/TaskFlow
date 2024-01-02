@@ -25,6 +25,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -70,7 +73,7 @@ public class TokenDemandServiceImpl implements ITokenDemandService {
         TokenDemand tokenDemand = tokenDemandMapper.dtoToEntity(tokenDemandDTO);
         tokenDemand.setUser(requestingUser);
         tokenDemand.setTask(requestedTask);
-        tokenDemand.setDemandDate(LocalDate.now());
+        tokenDemand.setDemandDate(LocalDateTime.now());
         tokenDemand.setStatus(DemandStatus.PENDING);
         TokenDemand savedTokenDemand = tokenDemandRepository.save(tokenDemand);
 
@@ -172,6 +175,26 @@ public class TokenDemandServiceImpl implements ITokenDemandService {
         return taskMapper.entityToDto(taskToReplace);
     }
 
+    @Override
+    @Transactional
+    public void processPendingTokenRequests() {
+        List<TokenDemand> pendingTokenRequests = tokenDemandRepository.findPendingTokenRequests();
+        for (TokenDemand tokenDemand : pendingTokenRequests) {
+            if (isManagerResponseOverdue(tokenDemand)) {
+                User user = userRepository.findById(tokenDemand.getUser().getId()).orElseThrow(() -> new ValidationException("User not found"));
+                user.setAdditionalTokens(user.getAdditionalTokens() + 2);
+                userRepository.save(user);
+            }
+        }
+    }
+
+    private boolean isManagerResponseOverdue(TokenDemand tokenDemand) {
+        LocalDateTime requestDate = tokenDemand.getDemandDate();
+        LocalDateTime deadline = requestDate.plusHours(12);
+        LocalDateTime now = LocalDateTime.now();
+
+        return now.isAfter(deadline);
+    }
 
     private User getUserById(Long userId) {
         return userRepository.findById(userId)

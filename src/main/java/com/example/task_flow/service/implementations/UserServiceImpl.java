@@ -30,6 +30,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserResponseDTO createUser(UserDTO userDTO) {
         User user = userMapper.dtoToEntity(userDTO);
+        user.setAdditionalTokens(2);
         User savedUser = userRepository.save(user);
         return userMapper.entityToDto(savedUser);
     }
@@ -41,6 +42,7 @@ public class UserServiceImpl implements IUserService {
             User user = optionalUser.get();
             user.setUserName(userDTO.getUserName());
             user.setEmail(userDTO.getEmail());
+            user.setAdditionalTokens(2);
             user.setPassword(userDTO.getPassword());
             user.setTelephone(userDTO.getTelephone());
             user.setRole(userDTO.getRole());

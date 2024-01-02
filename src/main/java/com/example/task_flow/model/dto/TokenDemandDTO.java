@@ -7,6 +7,7 @@ import lombok.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class TokenDemandDTO {
-    private LocalDate demandDate;
+    private LocalDateTime demandDate;
 
     private DemandStatus status;
 
