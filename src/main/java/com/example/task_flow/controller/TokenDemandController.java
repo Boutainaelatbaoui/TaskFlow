@@ -33,7 +33,6 @@ public class TokenDemandController {
 
     @PostMapping("/replace")
     public ResponseEntity<String> replaceTask(
-            @RequestParam Long taskIdToReplace,
             @RequestParam Long assignedToUserId,
             @RequestParam Long tokenDemandId,
             @RequestParam Long managerId

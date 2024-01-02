@@ -40,5 +40,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<TokenDemand> tokenDemands;
 
+    @Column(name = "additional_tokens")
+    private boolean additionalTokens;
+
 }
 

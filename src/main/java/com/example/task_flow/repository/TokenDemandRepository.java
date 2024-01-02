@@ -1,5 +1,6 @@
 package com.example.task_flow.repository;
 
+import com.example.task_flow.enums.DemandStatus;
 import com.example.task_flow.enums.TokenType;
 import com.example.task_flow.model.entities.Task;
 import com.example.task_flow.model.entities.TokenDemand;
@@ -28,4 +29,6 @@ public interface TokenDemandRepository extends JpaRepository<TokenDemand, Long> 
     );
 
     boolean existsByTask(Task task);
+    boolean existsByTaskAndStatus(Task task, DemandStatus status);
+
 }

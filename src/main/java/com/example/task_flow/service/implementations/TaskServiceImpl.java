@@ -1,5 +1,6 @@
 package com.example.task_flow.service.implementations;
 
+import com.example.task_flow.enums.DemandStatus;
 import com.example.task_flow.enums.Role;
 import com.example.task_flow.enums.TaskStatus;
 import com.example.task_flow.mapper.TaskMapper;
@@ -15,6 +16,7 @@ import com.example.task_flow.model.entities.TokenDemand;
 import com.example.task_flow.model.entities.User;
 import com.example.task_flow.repository.TagRepository;
 import com.example.task_flow.repository.TaskRepository;
+import com.example.task_flow.repository.TokenDemandRepository;
 import com.example.task_flow.repository.UserRepository;
 import com.example.task_flow.service.ITaskService;
 import jakarta.transaction.Transactional;
@@ -36,6 +38,7 @@ public class TaskServiceImpl implements ITaskService {
     private final TaskMapper taskMapper;
     private final TagRepository tagRepository;
     private final UserRepository userRepository;
+    private final TokenDemandRepository tokenDemandRepository;
 
     @Override
     public TaskResponseDTO createTask(TaskDTO taskDTO) {
@@ -51,42 +54,58 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public TaskResponseDTO updateTask(Long taskId, TaskDTO taskDTO) {
-        Optional<Task> optionalTask = taskRepository.findById(taskId);
-        if (optionalTask.isPresent()) {
-            validateTaskDTO(taskDTO);
+    public TaskResponseDTO updateTask(Long taskId, TaskDTO taskDTO, Long userId) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new ValidationException("Task not found with ID: " + taskId));
 
-            Task task = optionalTask.get();
-            task.setTitle(taskDTO.getTitle());
-            task.setDescription(taskDTO.getDescription());
-            task.setPriority(taskDTO.getPriority());
-            task.setStartDate(taskDTO.getStartDate());
-            task.setDueDate(taskDTO.getDueDate());
-            task.setAssignedTo(getUserById(taskDTO.getAssignedToUserId()));
-            task.setTags(getTagsByIds(taskDTO.getTagIds()));
-
-            Task updatedTask = taskRepository.save(task);
-            return taskMapper.entityToDto(updatedTask);
-        } else {
-            throw new ValidationException("Task not found with ID: " + taskId);
+        if (!isAdminOrCreator(userId, task.getCreatedBy())) {
+            throw new ValidationException("User does not have permission to update this task.");
         }
+
+        boolean hasChangedTokenDemand = tokenDemandRepository.existsByTaskAndStatus(task, DemandStatus.CHANGED);
+
+        if (hasChangedTokenDemand) {
+            throw new ValidationException("Task cannot be updated as it has a corresponding TokenDemand with status CHANGED.");
+        }
+
+        validateTaskDTO(taskDTO);
+
+        task.setTitle(taskDTO.getTitle());
+        task.setDescription(taskDTO.getDescription());
+        task.setPriority(taskDTO.getPriority());
+        task.setStartDate(taskDTO.getStartDate());
+        task.setDueDate(taskDTO.getDueDate());
+        task.setStatus(taskDTO.getStatus());
+        task.setAssignedTo(getUserById(taskDTO.getAssignedToUserId()));
+        task.setTags(getTagsByIds(taskDTO.getTagIds()));
+
+        Task updatedTask = taskRepository.save(task);
+        return taskMapper.entityToDto(updatedTask);
     }
 
-    @Override
+
+
     public void deleteTask(Long taskId, Long userId) {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
 
             if (isAdminOrCreator(userId, task.getCreatedBy())) {
+                boolean hasChangedTokenDemand = tokenDemandRepository.existsByTaskAndStatus(task, DemandStatus.CHANGED);
+
+                if (hasChangedTokenDemand) {
+                    throw new ValidationException("Cannot delete the task because it has a TokenDemand with status CHANGED.");
+                }
+
                 taskRepository.deleteById(taskId);
             } else {
-                throw new ValidationException("User does not have permission to delete this task. You can send a token to delete this task !!");
+                throw new ValidationException("User does not have permission to delete this task. You can send a token to delete this task!!");
             }
         } else {
             throw new ValidationException("Task not found with ID: " + taskId);
         }
     }
+
 
     private boolean isAdminOrCreator(Long userId, User createdBy) {
         User user = getUserById(userId);

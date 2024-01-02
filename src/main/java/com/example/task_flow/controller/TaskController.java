@@ -28,10 +28,13 @@ public class TaskController {
         return new ResponseEntity<>("created Task", HttpStatus.CREATED);
     }
 
-    @PutMapping("/{taskId}")
-    public ResponseEntity<String> updateTask(@PathVariable Long taskId, @RequestBody @Valid TaskDTO task) {
-        taskService.updateTask(taskId, task);
-        return ResponseEntity.ok("updatedTask");
+    @PutMapping("/{taskId}/{userId}")
+    public ResponseEntity<TaskResponseDTO> updateTask(
+            @PathVariable Long taskId,
+            @RequestBody @Valid TaskDTO task,
+            @PathVariable Long userId) {
+        TaskResponseDTO updatedTask = taskService.updateTask(taskId, task, userId);
+        return ResponseEntity.ok(updatedTask);
     }
 
     @DeleteMapping("/{taskId}/{userId}")
