@@ -7,11 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import java.util.List;
-
 @Mapper(componentModel = "spring")
 public interface TaskMapper {
     TaskMapper INSTANCE = Mappers.getMapper(TaskMapper.class);
+    @Mapping(target = "createdBy", source = "createdBy")
+    @Mapping(target = "assignedTo", source = "assignedTo")
     TaskResponseDTO entityToDto(Task task);
     Task dtoToEntity(TaskDTO taskDTO);
 

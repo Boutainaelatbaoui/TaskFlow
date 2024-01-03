@@ -1,5 +1,6 @@
 package com.example.task_flow.model.dto.response;
 
+import com.example.task_flow.model.dto.TaskDTO;
 import com.example.task_flow.model.entities.Task;
 import lombok.*;
 import java.util.List;
@@ -12,5 +13,4 @@ import java.util.List;
 public class TagResponseDTO {
     private Long id;
     private String name;
-    private List<Task> tasks;
 }

@@ -5,8 +5,11 @@ import com.example.task_flow.model.dto.response.TokenDemandResponseDTO;
 import com.example.task_flow.service.ITokenDemandService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/token-demands")
@@ -17,7 +20,7 @@ public class TokenDemandController {
 
     @PostMapping("/request")
     public ResponseEntity<String> requestToken(@RequestBody @Valid TokenDemandDTO tokenDemandDTO) {
-        TokenDemandResponseDTO responseDTO = tokenDemandService.requestToken(tokenDemandDTO);
+        tokenDemandService.requestToken(tokenDemandDTO);
         return ResponseEntity.ok("Request created!!");
     }
 
@@ -39,6 +42,12 @@ public class TokenDemandController {
     ) {
         tokenDemandService.replaceTask(assignedToUserId, tokenDemandId, managerId);
         return ResponseEntity.ok("Task replaced successfully.");
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<TokenDemandResponseDTO>> getAllTokenDemands() {
+        List<TokenDemandResponseDTO> tokenDemands = tokenDemandService.getAllTokenDemands();
+        return new ResponseEntity<>(tokenDemands, HttpStatus.OK);
     }
 }
 

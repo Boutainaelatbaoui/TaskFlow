@@ -133,11 +133,9 @@ public class TaskServiceImpl implements ITaskService {
         return tasks.stream()
                 .map(task -> {
                     TaskResponseDTO taskResponseDTO = taskMapper.entityToDto(task);
-                    taskResponseDTO.setCreatedBy(mapUserToUserDTO(task.getCreatedBy()));
-                    taskResponseDTO.setAssignedTo(mapUserToUserDTO(task.getAssignedTo()));
                     return taskResponseDTO;
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private void validateTaskDTO(TaskDTO taskDTO) {
@@ -230,7 +228,13 @@ public class TaskServiceImpl implements ITaskService {
         return null;
     }
 
-    private TokenDemandDTO mapTokenToDTO(TokenDemand tokenDemand){
+    private List<TokenDemandDTO> mapTokenToDTO(List<TokenDemand> tokenDemands) {
+        return tokenDemands.stream()
+                .map(this::mapTokenDemandToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private TokenDemandDTO mapTokenDemandToDTO(TokenDemand tokenDemand) {
         return TokenDemandDTO.builder()
                 .demandDate(tokenDemand.getDemandDate())
                 .status(tokenDemand.getStatus())

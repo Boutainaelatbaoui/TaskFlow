@@ -1,6 +1,8 @@
 package com.example.task_flow.model.dto.response;
 
 import com.example.task_flow.enums.Role;
+import com.example.task_flow.model.dto.TaskDTO;
+import com.example.task_flow.model.dto.TokenDemandDTO;
 import com.example.task_flow.model.entities.Task;
 import com.example.task_flow.model.entities.TokenDemand;
 import lombok.*;
@@ -18,8 +20,8 @@ public class UserResponseDTO {
     private String email;
     private String telephone;
     private Role role;
-    private List<Task> createdTasks;
-    private List<Task> assignedTasks;
-    private List<TokenDemand> tokenDemands;
+    private List<TaskDTO> createdTasks;
+    private List<TaskDTO> assignedTasks;
+    private List<TokenDemandDTO> tokenDemands;
 }
 

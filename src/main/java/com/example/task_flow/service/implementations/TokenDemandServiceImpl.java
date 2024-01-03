@@ -28,6 +28,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -194,6 +195,14 @@ public class TokenDemandServiceImpl implements ITokenDemandService {
         LocalDateTime now = LocalDateTime.now();
 
         return now.isAfter(deadline);
+    }
+
+    @Override
+    public List<TokenDemandResponseDTO> getAllTokenDemands() {
+        List<TokenDemand> tokenDemands = tokenDemandRepository.findAll();
+        return tokenDemands.stream()
+                .map(tokenDemandMapper::entityToDto)
+                .collect(Collectors.toList());
     }
 
     private User getUserById(Long userId) {
