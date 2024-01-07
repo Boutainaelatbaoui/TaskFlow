@@ -8,12 +8,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    NavbarComponent
+    NavbarComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

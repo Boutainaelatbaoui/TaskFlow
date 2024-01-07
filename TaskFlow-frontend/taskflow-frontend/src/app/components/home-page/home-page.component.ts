@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   imageHome: string = 'assets/img/group working.png';
+  imageHome1: string = 'assets/img/management.png';
+  imageHome2: string = 'assets/img/working01.png';
+  imageHome3: string = 'assets/img/working.png';
 }
