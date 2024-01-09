@@ -1,1 +1,13 @@
-<p>task works!</p>
+<!-- task-list.component.html -->
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as error">{{ error }}</div>
+
+<div *ngIf="tasks$ | async as tasks">
+  <ul *ngIf="tasks.length > 0">
+    <li *ngFor="let task of tasks">
+      {{ task.title }}
+      <!-- Display other task properties as needed -->
+    </li>
+  </ul>
+  <div *ngIf="tasks.length === 0">No tasks available.</div>
+</div>

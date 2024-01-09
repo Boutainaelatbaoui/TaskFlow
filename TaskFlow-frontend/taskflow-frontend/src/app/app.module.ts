@@ -1,5 +1,6 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TaskComponent } from './components/task/task.component';
+import { taskReducer } from './store/reducers/task.reducer';
+import { TaskEffects } from './store/effects/task.effects';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import { TaskComponent } from './components/task/task.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([])
+    HttpClientModule, 
+    StoreModule.forRoot({ tasks: taskReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: false }),
+    EffectsModule.forRoot([TaskEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
