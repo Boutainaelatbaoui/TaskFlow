@@ -11,7 +11,11 @@ import { Task } from 'src/app/models/task';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
-  tasks$: Observable<Task[]> | undefined; // Make the type explicitly include undefined
+  imageHome: string = 'assets/img/dot.png';
+  imageHome1: string = 'assets/img/dot1.png';
+  imageHome2: string = 'assets/img/dot2.png';
+
+  tasks$: Observable<Task[]> | undefined;
   loading$: Observable<boolean> | undefined;
   error$: Observable<any> | undefined;
 
@@ -23,5 +27,9 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(TaskActions.loadTasks());
+  }
+
+  filterTasksByStatus(tasks: Task[], status: string): Task[] {
+    return tasks.filter(task => task.status === status);
   }
 }

@@ -12,16 +12,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TaskComponent } from './components/task/task.component';
 import { taskReducer } from './store/reducers/task.reducer';
 import { TaskEffects } from './store/effects/task.effects';
+import { CreateTaskComponent } from './components/task/create-task/create-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavbarComponent,
-    TaskComponent
+    TaskComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule, 
     StoreModule.forRoot({ tasks: taskReducer }),

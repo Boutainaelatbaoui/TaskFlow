@@ -1,0 +1,40 @@
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="col-6">
+        <h2 class="fw-bold text-color pb-3">Create Task</h2>
+        <div class="card card-menu p-3 mt-4">
+            <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" class="form-control" formControlName="title" required />
+                <div *ngIf="createTaskForm?.get('title')?.hasError('required')" class="text-danger">Title is required</div>
+                </div>
+            
+                <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" class="form-control" formControlName="description" required></textarea>
+                <div *ngIf="createTaskForm?.get('description')?.hasError('required')" class="text-danger">Description is required</div>
+                </div>
+            
+                <div class="mb-3">
+                <label for="priority" class="form-label">Priority</label>
+                <select id="priority" class="form-select" formControlName="priority" required>
+                    <option value="" disabled selected>Select Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <div *ngIf="createTaskForm?.get('priority')?.hasError('required')" class="text-danger">Priority is required</div>
+                </div>
+            
+                <div class="mb-3">
+                <label for="dueDate" class="form-label">Due Date</label>
+                <input type="date" id="dueDate" class="form-control" formControlName="dueDate" required />
+                <div *ngIf="createTaskForm?.get('dueDate')?.hasError('required')" class="text-danger">Due Date is required</div>
+                </div>
+            
+            
+                <button type="submit" class="btn btn-primary" [disabled]="createTaskForm.invalid">Create Task</button>
+            </form>
+        </div>
+    </div>
+</div>

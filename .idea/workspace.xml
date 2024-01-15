@@ -5,140 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afdd9a3e-cc11-4a49-a77b-ceb79f3c3edc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../task-flow/.jpb/jpb-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/controller/TagController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/controller/TaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/enums/DemandStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/enums/Priority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/enums/TaskStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/enums/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/exception/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/mapper/TagMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/mapper/TaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/mapper/TokenDemandMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/dto/TagDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/dto/TaskDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/dto/TokenDemandDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/entities/Tag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/entities/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/entities/TokenDemand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/model/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/repository/TagRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/repository/TaskRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/ITagService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/ITaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/implementations/TagServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/implementations/TaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/java/com/example/taskflow/service/implementations/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/resources/db/changelog/2023/12/26-01-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-flow/src/main/resources/db/changelog/changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/.jpb/jpb-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/controller/TagController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/controller/TaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/enums/DemandStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/enums/Priority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/enums/TaskStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/enums/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/exception/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/mapper/TagMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/mapper/TaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/TagDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/TaskDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/response/TagResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/response/TaskResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/dto/response/UserResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/entities/Tag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/entities/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/entities/TokenDemand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/model/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/repository/TagRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/repository/TaskRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/ITagService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/ITaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/implementations/TagServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/implementations/TaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/java/com/example/task_flow/service/implementations/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/resources/db/changelog/2023/12/28-01-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task_flow/src/main/resources/db/changelog/changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile.2023-12-30.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile.2023-12-31.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile.2024-01-01.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile.2024-01-02.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logfile.2024-01-05.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid15284.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sonar-project.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/TaskFlowApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/config/SchedulingConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/controller/TagController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/controller/TaskController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/controller/TokenDemandController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/enums/DemandStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/enums/Priority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/enums/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/enums/TaskStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/enums/TokenType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/exception/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/mapper/TagMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/mapper/TaskMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/mapper/TokenDemandMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/TagDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/TaskDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/TokenDemandDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/response/TagResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/response/TaskResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/response/TokenDemandResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/dto/response/UserResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/entities/Tag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/entities/Task.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/entities/TokenDemand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/model/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/repository/TagRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/repository/TaskRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/repository/TokenDemandRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/ITagService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/ITaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/ITokenDemandService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/implementations/TagServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/implementations/TaskServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/implementations/TokenDemandServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/task_flow/service/implementations/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/2023/12/26-01-changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/2023/12/28-01-changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/2024/01/02-01-changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/2024/01/02-02-changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/2024/01/02-03-changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog-master.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/task_flow/service/implementations/TaskServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/task_flow/service/implementations/TokenDemandServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskFlow-frontend/taskflow-frontend/src/app/components/task/task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TaskFlow-frontend/taskflow-frontend/src/app/components/task/task.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,35 +42,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Youcode/Desktop/TaskFlow/TaskFlow-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "665b2887ee0649abc6c123561532998d",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Youcode/Desktop/TaskFlow/TaskFlow-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;665b2887ee0649abc6c123561532998d&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -340,6 +207,7 @@
       <workItem from="1704046838195" duration="7735000" />
       <workItem from="1704106604456" duration="45445000" />
       <workItem from="1704442166680" duration="5049000" />
+      <workItem from="1705260658515" duration="471000" />
     </task>
     <servers />
   </component>

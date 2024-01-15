@@ -152,9 +152,9 @@ public class TaskServiceImpl implements ITaskService {
 
         getTagsByIds(taskDTO.getTagIds());
 
-        if (taskDTO.getTagIds().size() < 2) {
-            throw new ValidationException("At least two tags are required for the task.");
-        }
+//        if (taskDTO.getTagIds().size() < 2) {
+//            throw new ValidationException("At least two tags are required for the task.");
+//        }
 
         getUserById(taskDTO.getCreatedByUserId());
         getUserById(taskDTO.getAssignedToUserId());
