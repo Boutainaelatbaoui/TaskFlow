@@ -70,4 +70,16 @@ export class TaskEffects {
         )
     )
     );
+
+    deleteTask$ = createEffect(() =>
+    this.actions$.pipe(
+        ofType(TaskActions.deleteTask),
+        mergeMap((action) =>
+            this.taskService.deleteTask(action.taskId, action.userId).pipe(
+            map(() => TaskActions.deleteTaskSuccess({ taskId: action.taskId })),
+            catchError((error) => of(TaskActions.deleteTaskFailure({ error })))
+            )
+        )
+        )
+    );
 }

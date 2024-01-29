@@ -6,6 +6,7 @@ import { TaskState } from 'src/app/store/reducers/task.reducer';
 import { TaskSelectors } from 'src/app/store/selectors/task.selectors';
 import { TaskRequest } from 'src/app/models/task-request';
 import { TaskService } from 'src/app/services/taskService/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-task',
@@ -17,7 +18,7 @@ export class CreateTaskComponent implements OnInit {
   tags$ = this.store.pipe(select(TaskSelectors.selectTags));
   users$ = this.store.pipe(select(TaskSelectors.selectUsers));
 
-  constructor(private formBuilder: FormBuilder, private store: Store<TaskState>, private taskService: TaskService) {
+  constructor(private formBuilder: FormBuilder, private store: Store<TaskState>, private taskService: TaskService, private router: Router) {
     this.createTaskForm = this.formBuilder.group({
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
@@ -54,7 +55,7 @@ export class CreateTaskComponent implements OnInit {
       title: this.createTaskForm.value.title,
       description: this.createTaskForm.value.description,
       priority: this.createTaskForm.value.priority,
-      status: this.createTaskForm.value.status,
+      status: "IN_PROGRESS",
       startDate: this.formatValue(new Date(this.createTaskForm.value.startDate)),
       dueDate: this.formatValue(new Date(this.createTaskForm.value.dueDate)),
       createdByUserId: this.createTaskForm.value.createdBy,
@@ -65,5 +66,6 @@ export class CreateTaskComponent implements OnInit {
     console.log('Task Form Value:', taskFormValue);
 
     this.store.dispatch(TaskActions.createTask({ task: taskFormValue }));
+    this.router.navigate(['/tasks']);
   }
 }

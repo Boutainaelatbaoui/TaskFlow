@@ -27,6 +27,17 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="status" class="form-label">status</label>
+                    <select id="status" class="form-select" formControlName="status" required>
+                        <option value="" disabled selected>Select status</option>
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="UNCOMPLETED">UNCOMPLETED</option>
+                    </select>
+                    <div *ngIf="createTaskForm?.get('priority')?.hasError('required')" class="text-danger">Priority is required</div>
+                </div>
+
+                <div class="mb-3">
                     <label for="tags" class="form-label">Tags</label>
                     <select id="tags" class="form-select" formControlName="tags" required>
                         <option value="" disabled selected>Select Tags</option>

@@ -39,4 +39,13 @@ export class TaskComponent implements OnInit {
       state: { taskData: task }
     });
   }  
+
+  onDelete(taskId: number, userId: number) {
+    const confirmDelete = confirm('Are you sure you want to delete this task?');
+    if (confirmDelete) {
+      console.log('Deleting task...', taskId, userId);
+      this.store.dispatch(TaskActions.deleteTask({ taskId, userId }));
+    }
+  }
+  
 }

@@ -99,7 +99,7 @@ ngOnInit(): void {
     console.log('Task Form Value:', taskFormValue);
 
     this.store.dispatch(TaskActions.updateTask({ taskId: this.taskId, userId: this.userId, task: taskFormValue }));
-    console.log("test");
+    this.router.navigate(['/tasks']);
     
   }
 }

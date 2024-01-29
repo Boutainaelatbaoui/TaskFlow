@@ -16,8 +16,8 @@
             <img [src]="imageHome2" style="max-width: 30px !important; max-height: 30px !important;">
             <h6 class="fw-bolder">In Progress</h6>
             </div>
-            <div class="mb-3 mx-3" id="to-do-tasks">
-            <button *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" (click)="navigateToUpdateForm(task)" class="card w-100 d-flex bg-white p-3 mb-3">
+            <div class="mb-3 mx-3" *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" id="to-do-tasks">
+            <button (click)="navigateToUpdateForm(task)" class="card w-100 d-flex bg-white p-3 mb-3">
                 <div class="text-start w-100 pe-2">
                     <div class="d-flex gap-2 align-items-center">
                         <div *ngFor="let tag of task.tags">
@@ -29,11 +29,13 @@
                     <div class="text-gray">#{{ task.id }} created in {{ task.startDate }}</div>
                     <div class="" title="{{ task.description }}">{{ task.description }}</div>
                 </div>
-                <div class="">
-                    <span class="btn btn-primary py-1 px-2 me-2">{{ task.priority }}</span>
+                <div class="d-flex justify-content-between">
+                    <div class="btn btn-primary py-1 px-2 me-2">{{ task.priority }}</div>
                 </div>
                 </div>
             </button>
+            <div><i class="bi bi-trash3-fill text-danger fs-3" (click)="onDelete(task.id, task.createdBy.id)"></i></div>
+
             </div>
         </div>
         </div>
