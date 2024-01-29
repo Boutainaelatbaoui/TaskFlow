@@ -8,6 +8,16 @@ export const selectTasks = createSelector(
     fromTask.selectTasks
 );
 
+export const selectTags = createSelector(
+    selectTaskState,
+    fromTask.selectTags
+);
+
+export const selectUsers = createSelector(
+    selectTaskState,
+    fromTask.selectUsers
+);
+
 export const selectLoading = createSelector(
     selectTaskState,
     fromTask.selectLoading
@@ -18,9 +28,17 @@ export const selectError = createSelector(
     fromTask.selectError
 );
 
+export const selectSelectedTask = createSelector(
+    selectTaskState,
+    fromTask.selectSelectedTask
+);
+
 export const TaskSelectors = {
     selectTaskState,
     selectTasks,
+    selectTags,
+    selectUsers,
     selectLoading,
     selectError,
+    selectSelectedTask,
 };

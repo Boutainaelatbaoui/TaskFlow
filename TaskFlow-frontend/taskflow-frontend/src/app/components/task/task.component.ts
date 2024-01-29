@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import * as TaskActions from 'src/app/store/actions/task.actions';
 import * as TaskSelectors from 'src/app/store/selectors/task.selectors';
 import { Task } from 'src/app/models/task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -19,7 +20,7 @@ export class TaskComponent implements OnInit {
   loading$: Observable<boolean> | undefined;
   error$: Observable<any> | undefined;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.tasks$ = this.store.select(TaskSelectors.selectTasks);
     this.loading$ = this.store.select(TaskSelectors.selectLoading);
     this.error$ = this.store.select(TaskSelectors.selectError);
@@ -31,5 +32,9 @@ export class TaskComponent implements OnInit {
 
   filterTasksByStatus(tasks: Task[], status: string): Task[] {
     return tasks.filter(task => task.status === status);
+  }
+
+  navigateToUpdateForm(taskId: number) {
+    this.router.navigate(['/update-task', taskId]);
   }
 }

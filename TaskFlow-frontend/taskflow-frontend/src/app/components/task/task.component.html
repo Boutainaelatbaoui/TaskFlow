@@ -17,7 +17,7 @@
             <h6 class="fw-bolder">In Progress</h6>
             </div>
             <div class="mb-3 mx-3" id="to-do-tasks">
-            <button *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" class="card w-100 d-flex bg-white p-3 mb-3">
+            <button *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" (click)="navigateToUpdateForm(task.id)" class="card w-100 d-flex bg-white p-3 mb-3">
                 <div class="text-start w-100 pe-2">
                     <div class="d-flex gap-2 align-items-center">
                         <div *ngFor="let tag of task.tags">

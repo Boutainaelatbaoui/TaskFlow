@@ -12,10 +12,50 @@ export class TaskEffects {
     loadTasks$ = createEffect(() => this.actions$.pipe(
         ofType(TaskActions.loadTasks),
         mergeMap(() => this.taskService.getAllTasks()
-        .pipe(
-            map(tasks => TaskActions.loadTasksSuccess({ tasks })),
-            catchError(error => of(TaskActions.loadTasksFailure({ error })))
+            .pipe(
+                map(tasks => TaskActions.loadTasksSuccess({ tasks })),
+                catchError(error => of(TaskActions.loadTasksFailure({ error })))
+            )
         )
+    ));
+
+    loadTags$ = createEffect(() => this.actions$.pipe(
+        ofType(TaskActions.loadTags),
+        mergeMap(() => this.taskService.getAllTags()
+            .pipe(
+                map(tags => TaskActions.loadTagsSuccess({ tags })),
+                catchError(error => of(TaskActions.loadTagsFailure({ error })))
+            )
+        )
+    ));
+
+    loadUsers$ = createEffect(() => this.actions$.pipe(
+        ofType(TaskActions.loadUsers),
+        mergeMap(() => this.taskService.getAllUsers()
+            .pipe(
+                map(users => TaskActions.loadUsersSuccess({ users })),
+                catchError(error => of(TaskActions.loadUsersFailure({ error })))
+            )
+        )
+    ));
+
+    createTask$ = createEffect(() => this.actions$.pipe(
+        ofType(TaskActions.createTask),
+        mergeMap(action => this.taskService.createTask(action.task)
+            .pipe(
+                map(createdTask => TaskActions.createTaskSuccess({ task: createdTask })),
+                catchError(error => of(TaskActions.createTaskFailure({ error })))
+            )
+        )
+    ));
+
+    loadTask$ = createEffect(() => this.actions$.pipe(
+        ofType(TaskActions.loadTask),
+        mergeMap(({ taskId }) => this.taskService.getTaskById(taskId)
+            .pipe(
+                map(task => TaskActions.loadTaskSuccess({ task })),
+                catchError(error => of(TaskActions.loadTaskFailure({ error })))
+            )
         )
     ));
 }

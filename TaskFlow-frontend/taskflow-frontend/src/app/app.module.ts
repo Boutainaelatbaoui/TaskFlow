@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { taskReducer } from './store/reducers/task.reducer';
 import { TaskEffects } from './store/effects/task.effects';
 import { CreateTaskComponent } from './components/task/create-task/create-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateTaskComponent } from './components/task/update-task/update-task.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomePageComponent,
     NavbarComponent,
     TaskComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,

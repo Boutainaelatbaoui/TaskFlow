@@ -1,18 +1,18 @@
 <div class="container mt-5 mb-5 d-flex justify-content-center">
     <div class="col-6">
-        <h2 class="fw-bold text-color pb-3">Create Task</h2>
+        <h2 class="fw-bold text-color pb-3">Update Task</h2>
         <div class="card card-menu p-3 mt-4">
-            <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="updateTaskForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" id="title" class="form-control" formControlName="title" required />
-                    <div *ngIf="createTaskForm?.get('title')?.hasError('required')" class="text-danger">Title is required</div>
+                    <div *ngIf="updateTaskForm?.get('title')?.hasError('required')" class="text-danger">Title is required</div>
                 </div>
             
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea id="description" class="form-control" formControlName="description" required></textarea>
-                    <div *ngIf="createTaskForm?.get('description')?.hasError('required')" class="text-danger">Description is required</div>
+                    <div *ngIf="updateTaskForm?.get('description')?.hasError('required')" class="text-danger">Description is required</div>
                 </div>
             
                 <div class="mb-3">
@@ -23,7 +23,7 @@
                         <option value="MEDIUM">Medium</option>
                         <option value="LOW">Low</option>
                     </select>
-                    <div *ngIf="createTaskForm?.get('priority')?.hasError('required')" class="text-danger">Priority is required</div>
+                    <div *ngIf="updateTaskForm?.get('priority')?.hasError('required')" class="text-danger">Priority is required</div>
                 </div>
 
                 <div class="mb-3">
@@ -32,19 +32,19 @@
                         <option value="" disabled selected>Select Tags</option>
                         <option *ngFor="let tag of tags$ | async" [value]="tag.id">{{ tag.name }}</option>
                     </select>
-                    <div *ngIf="createTaskForm?.get('tags')?.hasError('required')" class="text-danger">Tags are required</div>
+                    <div *ngIf="updateTaskForm?.get('tags')?.hasError('required')" class="text-danger">Tags are required</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="dueDate" class="form-label">Due Date</label>
                     <input type="date" id="dueDate" class="form-control" formControlName="dueDate" required />
-                    <div *ngIf="createTaskForm?.get('dueDate')?.hasError('required')" class="text-danger">Due Date is required</div>
+                    <div *ngIf="updateTaskForm?.get('dueDate')?.hasError('required')" class="text-danger">Due Date is required</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="startDate" class="form-label">Start Date</label>
                     <input type="date" id="startDate" class="form-control" formControlName="startDate" required />
-                    <div *ngIf="createTaskForm?.get('startDate')?.hasError('required')" class="text-danger">Start Date is required</div>
+                    <div *ngIf="updateTaskForm?.get('startDate')?.hasError('required')" class="text-danger">Start Date is required</div>
                 </div>
 
                 <div class="mb-3">
@@ -53,19 +53,19 @@
                         <option value="" disabled selected>Select User</option>
                         <option *ngFor="let user of users$ | async" [value]="user.id">{{ user.userName }}</option>
                     </select>
-                    <div *ngIf="createTaskForm?.get('assignedTo')?.hasError('required')" class="text-danger">Assigned To is required</div>
+                    <div *ngIf="updateTaskForm?.get('assignedTo')?.hasError('required')" class="text-danger">Assigned To is required</div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="createdBy" class="form-label">Created By</label>
+                    <label for="createdBy" class="form-label">created By</label>
                     <select id="createdBy" class="form-select" formControlName="createdBy" required>
                         <option value="" disabled selected>Select User</option>
                         <option *ngFor="let user of users$ | async" [value]="user.id">{{ user.userName }}</option>
                     </select>
-                    <div *ngIf="createTaskForm?.get('createdBy')?.hasError('required')" class="text-danger">Created By is required</div>
+                    <div *ngIf="updateTaskForm?.get('createdBy')?.hasError('required')" class="text-danger">Created By is required</div>
                 </div>
             
-                <button type="submit" class="btn btn-primary" [disabled]="createTaskForm.invalid">Create Task</button>
+                <button type="submit" class="btn btn-primary" [disabled]="updateTaskForm.invalid">Update Task</button>
             </form>
         </div>
     </div>
