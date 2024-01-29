@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'tasks', component: TaskComponent },
   { path: 'create-task', component: CreateTaskComponent },
-  { path: 'update-task/:taskId', component: UpdateTaskComponent },
+  { path: 'update-task/:taskId/:userId', component: UpdateTaskComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

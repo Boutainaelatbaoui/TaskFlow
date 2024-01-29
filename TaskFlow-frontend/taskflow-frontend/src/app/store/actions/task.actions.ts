@@ -23,3 +23,18 @@ export const createTaskFailure = createAction('[Task] Create Task Failure', prop
 export const loadTask = createAction('[Task] Load Task', props<{ taskId: number }>());
 export const loadTaskSuccess = createAction('[Task] Load Task Success', props<{ task: Task }>());
 export const loadTaskFailure = createAction('[Task] Load Task Failure', props<{ error: any }>());
+
+export const updateTask = createAction(
+    '[Task] Update Task',
+    props<{ taskId: number; userId: number; task: any }>()
+);
+
+export const updateTaskSuccess = createAction(
+    '[Task] Update Task Success',
+    props<{ task: Task }>()
+);
+
+export const updateTaskFailure = createAction(
+    '[Task] Update Task Failure',
+    props<{ error: any }>()
+);

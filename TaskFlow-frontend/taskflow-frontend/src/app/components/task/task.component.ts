@@ -34,7 +34,9 @@ export class TaskComponent implements OnInit {
     return tasks.filter(task => task.status === status);
   }
 
-  navigateToUpdateForm(taskId: number) {
-    this.router.navigate(['/update-task', taskId]);
-  }
+  navigateToUpdateForm(task: Task) {
+    this.router.navigate(['/update-task', task.id, task.createdBy.id], {
+      state: { taskData: task }
+    });
+  }  
 }

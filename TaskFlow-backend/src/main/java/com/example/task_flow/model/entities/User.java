@@ -1,6 +1,7 @@
 package com.example.task_flow.model.entities;
 
 import com.example.task_flow.enums.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,12 +32,15 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "createdBy")
     private List<Task> createdTasks;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "assignedTo")
     private List<Task> assignedTasks;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<TokenDemand> tokenDemands;
 

@@ -9,6 +9,7 @@ import jakarta.validation.constraints.*;
 @AllArgsConstructor
 @Builder
 public class TagDTO {
+    private Long id;
     @NotBlank(message = "Name is required")
     private String name;
 }

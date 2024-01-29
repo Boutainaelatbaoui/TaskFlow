@@ -116,8 +116,6 @@ public class TaskServiceImpl implements ITaskService {
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
             TaskResponseDTO taskResponseDTO = taskMapper.entityToDto(task);
-            taskResponseDTO.setAssignedTo(mapUserToUserDTO(task.getAssignedTo()));
-            taskResponseDTO.setCreatedBy(mapUserToUserDTO(task.getCreatedBy()));
             return taskResponseDTO;
         } else {
             throw new ValidationException("Task not found with ID: " + taskId);

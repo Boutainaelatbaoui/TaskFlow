@@ -1,5 +1,6 @@
 package com.example.task_flow.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Tag {
 
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "tags")
     private List<Task> tasks;
 }

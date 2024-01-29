@@ -25,9 +25,9 @@ public class TaskResponseDTO {
     private Priority priority;
     private LocalDate startDate;
     private LocalDate dueDate;
-    private UserDTO createdBy;
-    private UserDTO assignedTo;
+    private User createdBy;
+    private User assignedTo;
     private TaskStatus status;
-    private List<TagDTO> tags;
+    private List<Tag> tags;
     private List<TokenDemandDTO> tokenDemands;
 }

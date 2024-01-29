@@ -45,6 +45,12 @@ export const taskReducer = createReducer(
     on(TaskActions.createTaskFailure, (state, { error }) => ({ ...state, error, loading: false })),
     on(TaskActions.loadTaskSuccess, (state, { task }) => ({ ...state, selectedTask: task, loading: false })),
     on(TaskActions.loadTaskFailure, (state, { error }) => ({ ...state, error, loading: false })),
+
+    on(TaskActions.updateTaskSuccess, (state, { task }) => {
+        const updatedTasks = state.tasks.map((t) => (t.id === task.id ? task : t));
+        return { ...state, tasks: updatedTasks, loading: false };
+    }),
+    on(TaskActions.updateTaskFailure, (state, { error }) => ({ ...state, error, loading: false })),
 );
 
 export const selectTasks = (state: TaskState) => state.tasks;

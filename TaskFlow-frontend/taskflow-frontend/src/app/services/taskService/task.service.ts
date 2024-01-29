@@ -46,4 +46,10 @@ export class TaskService {
       })
     );
   }
+
+  updateTask(taskId: number, userId: number, task: Task): Observable<Task> {
+    console.log(task); 
+    const url = `${this.apiUrl}/tasks/${taskId}/${userId}`;
+    return this.http.put<Task>(url, task);
+  }
 }

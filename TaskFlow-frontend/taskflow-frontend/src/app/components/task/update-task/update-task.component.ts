@@ -18,6 +18,8 @@ export class UpdateTaskComponent implements OnInit {
   updateTaskForm: FormGroup;
   tags$ = this.store.pipe(select(TaskSelectors.selectTags));
   users$ = this.store.pipe(select(TaskSelectors.selectUsers));
+  taskId!: number;
+  userId!: number;
 
   constructor(private formBuilder: FormBuilder, private store: Store<TaskState>, private taskService: TaskService, private route: ActivatedRoute,
     private router: Router) {
@@ -28,43 +30,44 @@ export class UpdateTaskComponent implements OnInit {
       dueDate: [new Date(), [Validators.required]],
       startDate: [new Date(), [Validators.required]],
       tags: [[]],
+      status: ["", [Validators.required]],
       assignedTo: ["", [Validators.required]],
       createdBy: ["", [Validators.required]],
     });
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(TaskActions.loadTags());
-    this.store.dispatch(TaskActions.loadUsers());
-  
-    combineLatest([this.route.paramMap, this.store.pipe(select(selectSelectedTask))])
-      .subscribe(([params, task]) => {
-        const taskIdParam = params.get('taskId');
-        console.log('Task ID from URL:', taskIdParam);
-  
-        if (taskIdParam) {
-          const taskId = +taskIdParam;
-          this.store.dispatch(TaskActions.loadTask({ taskId }));
-        }
-  
-        console.log('Selected Task from NgRx State:', task);
-  
-        if (task) {
-          this.updateTaskForm.patchValue({
-            title: task.title,
-            description: task.description,
-            priority: task.priority,
-            startDate: task.startDate,
-            dueDate: task.dueDate,
-            assignedTo: task.assignedTo.id,
-            createdBy: task.createdBy.id,
-            tags: task.tags.map(tag => tag.id),
-          });
-  
-          console.log('Form Values After Patch:', this.updateTaskForm.value);
-        }
-      });
+ngOnInit(): void {
+  this.store.dispatch(TaskActions.loadTags());
+  this.store.dispatch(TaskActions.loadUsers());
+
+  const taskData = history.state.taskData;
+
+  if (taskData) {
+    console.log(taskData);
+    console.log(taskData.tags[0].name);
+    console.log(taskData.tags[0].id);
+    
+    
+    
+    this.updateTaskForm.patchValue({      
+      title: taskData.title,
+      description: taskData.description,
+      priority: taskData.priority,
+      status: taskData.status,
+      startDate: taskData.startDate,
+      dueDate: taskData.dueDate,
+      assignedTo: taskData.assignedTo.id,
+      createdBy: taskData.createdBy.id,
+      tags: taskData.tags[0].id,
+    });
   }
+
+  this.route.params.subscribe((params) => {
+    this.taskId = +params['taskId'];
+    this.userId = +params['userId'];
+  });
+}
+
   
 
   formatValue(value: any): any {
@@ -85,6 +88,7 @@ export class UpdateTaskComponent implements OnInit {
       title: this.updateTaskForm.value.title,
       description: this.updateTaskForm.value.description,
       priority: this.updateTaskForm.value.priority,
+      status: this.updateTaskForm.value.status,
       startDate: this.formatValue(new Date(this.updateTaskForm.value.startDate)),
       dueDate: this.formatValue(new Date(this.updateTaskForm.value.dueDate)),
       createdByUserId: this.updateTaskForm.value.createdBy,
@@ -94,6 +98,8 @@ export class UpdateTaskComponent implements OnInit {
 
     console.log('Task Form Value:', taskFormValue);
 
-    this.store.dispatch(TaskActions.createTask({ task: taskFormValue }));
+    this.store.dispatch(TaskActions.updateTask({ taskId: this.taskId, userId: this.userId, task: taskFormValue }));
+    console.log("test");
+    
   }
 }

@@ -13,6 +13,7 @@ import jakarta.validation.constraints.*;
 @AllArgsConstructor
 @Builder
 public class UserDTO {
+    private Long id;
 
     @NotBlank(message = "Username is required")
     private String userName;
