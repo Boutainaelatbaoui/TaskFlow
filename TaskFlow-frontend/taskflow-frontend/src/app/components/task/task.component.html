@@ -16,7 +16,7 @@
             <img [src]="imageHome2" style="max-width: 30px !important; max-height: 30px !important;">
             <h6 class="fw-bolder">In Progress</h6>
             </div>
-            <div class="mb-3 mx-3" *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" id="to-do-tasks">
+            <div class="mb-3 mx-3 d-flex gap-2" *ngFor="let task of filterTasksByStatus(tasks, 'IN_PROGRESS')" id="to-do-tasks">
             <button (click)="navigateToUpdateForm(task)" class="card w-100 d-flex bg-white p-3 mb-3">
                 <div class="text-start w-100 pe-2">
                     <div class="d-flex gap-2 align-items-center">
@@ -34,8 +34,7 @@
                 </div>
                 </div>
             </button>
-            <div><i class="bi bi-trash3-fill text-danger fs-3" (click)="onDelete(task.id, task.createdBy.id)"></i></div>
-
+            <div><i class="bi bi-x-circle-fill text-danger fs-5" (click)="onDelete(task.id, task.createdBy.id)"></i></div>
             </div>
         </div>
         </div>
